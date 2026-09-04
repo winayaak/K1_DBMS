@@ -32,3 +32,20 @@ delete from employees where emp_id=idd;
  begin
  delete_employee(7);
  end;
+
+
+ select * from employees
+inner join departments
+on employees.department = departments.department_id;
+
+select * from departments
+left join employees
+on departments.department_id = employees.department;
+
+select * from departments
+right join employees
+on departments.department_id = employees.department;
+
+select * from employees
+full outer join departments
+on employees.department = departments.department_id;
