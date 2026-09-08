@@ -145,3 +145,10 @@ where department = (
 
 select * from it_emp_view;
 
+create or replace view high_salary_view
+as
+select *
+from employees
+where salary > 100000;
+
+select * from high_salary_view;
