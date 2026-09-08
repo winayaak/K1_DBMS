@@ -105,3 +105,43 @@ select * from employees
 where salary = (
     select max(salary) from employees
 );
+
+create or replace view emp_sal_view
+as
+select emp_id, first_name, last_name, salary
+from employees;
+
+select * from emp_sal_view;
+
+
+create or replace view high_sal_view
+as
+select *
+from employees
+where salary > 60000;
+
+select * from high_sal_view;
+
+
+create or replace view emp_dept_view
+as
+select *
+from employees
+inner join departments
+on employees.department = departments.department_id;
+
+select * from emp_dept_view;
+
+
+create or replace view it_emp_view
+as
+select *
+from employees
+where department = (
+    select department_id
+    from departments
+    where department_name = 'IT'
+);
+
+select * from it_emp_view;
+
