@@ -152,3 +152,31 @@ from employees
 where salary > 100000;
 
 select * from high_salary_view;
+
+create or replace view emp_name_view
+as
+select first_name, last_name
+from employees;
+
+select * from emp_name_view;
+
+create or replace view emp_details_view
+as
+select *
+from employees
+inner join departments
+on employees.department = departments.department_id;
+
+select * from emp_details_view;
+
+create or replace view finance_emp_view
+as
+select *
+from employees
+where department = (
+    select department_id
+    from departments
+    where department_name = 'Finance'
+);
+
+select * from finance_emp_view;
